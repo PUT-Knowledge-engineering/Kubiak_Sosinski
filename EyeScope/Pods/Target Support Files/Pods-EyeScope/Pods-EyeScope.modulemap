@@ -1,0 +1,6 @@
+framework module Pods_EyeScope {
+  umbrella header "Pods-EyeScope-umbrella.h"
+
+  export *
+  module * { export * }
+}
