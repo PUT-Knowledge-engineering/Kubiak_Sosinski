@@ -20,16 +20,17 @@
             <rect key="frame" x="0.0" y="64" width="375" height="603"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cRe-le-2kM">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cRe-le-2kM">
+                    <rect key="frame" x="0.0" y="20" width="375" height="583"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.79854494330000003" green="0.99987882380000004" blue="0.80135744809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.79854494333267212" green="0.99987882375717163" blue="0.8013574481010437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="cRe-le-2kM" secondAttribute="bottom" id="LaU-kG-hux"/>
                 <constraint firstAttribute="trailing" secondItem="cRe-le-2kM" secondAttribute="trailing" id="p0P-HD-Ex9"/>
-                <constraint firstItem="cRe-le-2kM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pYa-0H-QTV"/>
+                <constraint firstItem="cRe-le-2kM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="pYa-0H-QTV"/>
                 <constraint firstItem="cRe-le-2kM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rKe-Zg-zbT"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

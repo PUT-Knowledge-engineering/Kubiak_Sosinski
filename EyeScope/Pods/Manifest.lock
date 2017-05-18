@@ -39,6 +39,9 @@ PODS:
   - Result (3.2.1)
   - RxCocoa (3.3.1):
     - RxSwift (~> 3.3)
+  - RxDataSources (1.0.3):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
   - RxOptional (3.1.3):
     - RxCocoa
     - RxSwift
@@ -58,6 +61,7 @@ DEPENDENCIES:
   - Moya-Gloss/RxSwift
   - Moya/RxSwift
   - RxCocoa
+  - RxDataSources (~> 1.0)
   - RxOptional
   - RxSwift
   - SDWebImage (~> 4.0.0)
@@ -85,6 +89,7 @@ SPEC CHECKSUMS:
   Moya-Gloss: b994dc03a346592e72bee59b16b6c96149412bc3
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   RxCocoa: 7dcb7a1860fc9cd0e23dae67ab105fc2916670b6
+  RxDataSources: a021a0e944ba5f7991259829d973afdbfa719c0b
   RxOptional: b97b59183af80d1e729ac9e51d09a10be668d6a8
   RxSwift: 8fc9f2de6275a9101d518444e00bf32f1a42caac
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
@@ -92,6 +97,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 9216b6e163c145628ccc7c0126df4287880d6e1e
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 379081279459e388ebac1110dfefc625950605d2
+PODFILE CHECKSUM: 09bb00b8bcf899650f08499f55368acaeb157062
 
 COCOAPODS: 1.2.0
