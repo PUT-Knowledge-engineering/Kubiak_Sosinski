@@ -106,7 +106,6 @@
 				34A728011ECD99B700F891F3 /* Extensions */,
 				34A727FA1ECD979B00F891F3 /* ViewModels */,
 				34CB12731EA7C6B80056BFFB /* Network */,
-				34CB12721EA7C6860056BFFB /* ViewControllers */,
 				34CB12711EA7C6780056BFFB /* Views */,
 				34CB12701EA7C6710056BFFB /* Model */,
 				34CB126F1EA7C6600056BFFB /* Coordinators */,
@@ -180,13 +179,6 @@
 				349D2C141EDF52970039323F /* PhotosPageController.xib */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		34CB12721EA7C6860056BFFB /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		34CB12731EA7C6B80056BFFB /* Network */ = {

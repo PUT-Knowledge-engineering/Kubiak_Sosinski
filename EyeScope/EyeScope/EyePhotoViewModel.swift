@@ -37,7 +37,7 @@ class EyePhotoViewModel {
     init(imageUrl: String, photo: EyePhoto) {
         self.photo = photo
         self.photoUrl = imageUrl
- //       setupFoldersObserver(imageUrl: imageUrl)
+        setupObservables()
         downloadImage()
     }
 

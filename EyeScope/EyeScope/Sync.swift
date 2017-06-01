@@ -22,7 +22,6 @@ class Sync {
                     return
                 }
                 // dump(json)
-                //print(json)
                 for catalog in json["dirs"] as? [JSON] ?? [] {
                     let catalog = CatalogEntity(json: catalog)
                     catalogs.append(catalog)
@@ -42,7 +41,6 @@ class Sync {
                 return
             }
             // dump(json)
-            //print(json)
             let photos = CatalogList(json: json)
 
             successful(photos)

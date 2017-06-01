@@ -31,9 +31,6 @@ class AppCoordinator: FlowCoordinator {
         let dashboardViewController = DashboardViewController(viewModel: dm)
 
         navigationController.pushViewController(dashboardViewController, animated: true)
-
-
-        //TODO: Setup ViewController
     }
     
 }

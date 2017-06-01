@@ -44,11 +44,6 @@ class PhotosPageController: UIViewController, UIScrollViewDelegate {
         self.automaticallyAdjustsScrollViewInsets = false
     }
 
-//    override func viewWillLayoutSubviews() {
-//        super.viewWillLayoutSubviews()
-//        self.automaticallyAdjustsScrollViewInsets = false
-//    }
-
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         currentPage.value = Int(pageNumber)
@@ -110,7 +105,6 @@ class PhotosPageController: UIViewController, UIScrollViewDelegate {
         pagesView.clipsToBounds = false
         pagesView.isPagingEnabled = true
         pagesView.hitTestEdgeInsets = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
-     //   motivationView.clipsToBounds = true
         for index in 0..<viewModel.numberOfPages.value {
             pageFrame.size = CGSize(width: pagesView.frame.size.width, height: self.pagesView.frame.size.height)
             if index == 0 {
