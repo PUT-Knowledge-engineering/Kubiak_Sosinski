@@ -34,10 +34,10 @@ struct CatalogEntity {
 }
 
 struct CatalogList {
-    var risks    = Array<CatalogEntity>()
+    var photos: [String] = []
 
     init(json: JSON) {
-        risks = (json[0] as? [JSON])?.map { CatalogEntity(json: $0) } ?? []
+        photos = json["photos"] as? [String] ?? []
     }
     
 }

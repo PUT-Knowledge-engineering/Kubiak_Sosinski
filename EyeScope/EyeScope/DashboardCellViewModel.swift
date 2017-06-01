@@ -13,9 +13,11 @@ class DashboardCellViewModel {
 
     var catalogName: String
     var status: Bool
+    var index: Int
 
-    init(catalogName: String, status: Bool){
+    init(catalogName: String, status: Bool, index: Int){
         self.catalogName = catalogName
         self.status = status
+        self.index = index
     }
 }

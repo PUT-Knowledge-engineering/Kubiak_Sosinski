@@ -12,9 +12,14 @@ import RxDataSources
 
 typealias FolderSection = SectionModel<String, DashboardCellViewModel>
 
+protocol DashboardViewModelDelegate: class {
+    func folderChoosen(withFolder folder: Int, named: String)
+}
+
 class DashboardViewModel {
     let observableSections: Variable<[FolderSection]> = Variable([])
     let observableFolders: Variable<[CatalogEntity]> = Variable([])
+    weak var delegate: DashboardViewModelDelegate?
 
     private let disposeBag = DisposeBag()
 
@@ -43,6 +48,7 @@ class DashboardViewModel {
             self.observableFolders.value = catalogs
             completion(nil)
         }, failure: { (error) -> (Void) in
+            print(error)
             completion(error)
         })
     }
@@ -51,13 +57,16 @@ class DashboardViewModel {
         var sections = [FolderSection]()
         var catalogViewModel = [DashboardCellViewModel]()
 
-        catalogs.forEach { catalog in
-            catalogViewModel.append(DashboardCellViewModel(catalogName: catalog.name, status: catalog.processed))
+        for (id, catalog) in catalogs.enumerated() {
+            catalogViewModel.append(DashboardCellViewModel(catalogName: catalog.name, status: catalog.processed, index: id))
         }
-
         sections.append(FolderSection(model: "Catalogs", items: catalogViewModel))
 
         return sections
+    }
+
+    func chooseFolder(folder: Int, named: String) {
+        delegate?.folderChoosen(withFolder: folder, named: named)
     }
 
 }

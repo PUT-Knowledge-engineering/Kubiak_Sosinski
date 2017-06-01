@@ -20,7 +20,6 @@ class DashboardViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
 
-    
     init(viewModel: DashboardViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -34,12 +33,17 @@ class DashboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureTableView()
         configureTableViewDataSource()
+        configureTableViewDelegate()
         bindToViewModel()
 
-        self.view.backgroundColor = UIColor(red:0.80, green:1.00, blue:0.80, alpha:1.0)
+        //self.view.backgroundColor = UIColor(red:0.80, green:1.00, blue:0.80, alpha:1.0)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
 
     private func configureTableView(){
@@ -53,7 +57,8 @@ class DashboardViewController: UIViewController {
         tableView.tableFooterView = footerView
         self.automaticallyAdjustsScrollViewInsets = true
         self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
-        UIApplication.shared.statusBarView?.backgroundColor = UIColor(red:0.80, green:1.00, blue:0.80, alpha:1.0)
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor(red: 219 / 255, green: 227 / 255, blue: 227 / 255, alpha: 1.0)
+            //UIColor(red:0.18, green:0.23, blue:0.52, alpha:1.00)
     }
 
     private func bindToViewModel(){
@@ -65,7 +70,7 @@ class DashboardViewController: UIViewController {
         dataSource.configureCell = { ds, tv, ip, item in
             let cell: DashboardCell = self.tableView.dequeueReusableCell(indexPath: ip as NSIndexPath)
             cell.viewModel = item
-            cell.backgroundColor = UIColor(red:1.00, green:1.00, blue:0.90, alpha:1.0)
+            //cell.backgroundColor = UIColor(red:1.00, green:1.00, blue:0.90, alpha:1.0)
 
             return cell
         }
@@ -83,18 +88,31 @@ class DashboardViewController: UIViewController {
 
         return cell
     }
+
+    private func configureTableViewDelegate() {
+
+
+        tableView.rx.itemSelected.map { indexPath in
+            return (indexPath, self.dataSource[indexPath])
+            }
+            .subscribe(onNext: { [unowned self] indexPath, model in
+                self.viewModel.chooseFolder(folder: model.index, named: model.catalogName)
+            })
+            .addDisposableTo(disposeBag)
+    }
 }
+
 
 extension DashboardViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width,
                                               height: 70))
-        headerView.backgroundColor = UIColor(red:0.80, green:1.00, blue:0.80, alpha:1.0)
+        headerView.backgroundColor = UIColor(red: 156 / 255,  green: 177 / 255,  blue: 255 / 255, alpha: 1.0)
 
         let label = UILabel(frame: CGRect.zero)
         label.font = UIFont(name: "SofiaProSoft-Medium", size: 12)
-        label.textColor = UIColor(red:0.00, green:0.60, blue:0.20, alpha:1.0)
+        label.textColor = UIColor(red:0.18, green:0.23, blue:0.52, alpha:1.00)
         headerView.addSubview(label)
 
         let section = "CATALOGS"
@@ -102,7 +120,7 @@ extension DashboardViewController: UITableViewDelegate {
 
         label.snp.makeConstraints { make in
             make.left.equalTo(headerView.snp.left).offset(23)
-            make.bottom.equalTo(headerView.snp.bottom).offset(-23)
+            make.bottom.equalTo(headerView.snp.bottom).offset(-10)
         }
 
         return headerView
@@ -112,18 +130,16 @@ extension DashboardViewController: UITableViewDelegate {
         return CGFloat.leastNormalMagnitude
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 70
-    }
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 
-    func tableView(_ tableView: UITableView, editingStyleForRowAt
-        indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return .none
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
 }
 

@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		348D187C1EA7B84F00F747C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348D187B1EA7B84F00F747C2 /* AppDelegate.swift */; };
-		348D187E1EA7B84F00F747C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348D187D1EA7B84F00F747C2 /* ViewController.swift */; };
 		348D18811EA7B84F00F747C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348D187F1EA7B84F00F747C2 /* Main.storyboard */; };
 		348D18831EA7B84F00F747C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 348D18821EA7B84F00F747C2 /* Assets.xcassets */; };
 		348D18861EA7B84F00F747C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348D18841EA7B84F00F747C2 /* LaunchScreen.storyboard */; };
-		34A727F71ECD936300F891F3 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A727F61ECD936300F891F3 /* Photo.swift */; };
-		34A727F91ECD949A00F891F3 /* EyeFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A727F81ECD949A00F891F3 /* EyeFolder.swift */; };
+		349D2C151EDF52970039323F /* PhotosPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D2C131EDF52970039323F /* PhotosPageController.swift */; };
+		349D2C161EDF52970039323F /* PhotosPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349D2C141EDF52970039323F /* PhotosPageController.xib */; };
+		349D2C181EDF53850039323F /* EyePhaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D2C171EDF53850039323F /* EyePhaseViewModel.swift */; };
+		349D2C1A1EDF59630039323F /* ExtendedPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D2C191EDF59630039323F /* ExtendedPageControl.swift */; };
+		349D2C1C1EDF59D50039323F /* ExtendedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D2C1B1EDF59D50039323F /* ExtendedScrollView.swift */; };
+		349D2C1E1EDF72750039323F /* EyePhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D2C1D1EDF72750039323F /* EyePhotoViewModel.swift */; };
+		349D2C221EDFAFF40039323F /* EyePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D2C211EDFAFF40039323F /* EyePhoto.swift */; };
 		34A727FC1ECD97AF00F891F3 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A727FB1ECD97AF00F891F3 /* DashboardViewModel.swift */; };
 		34A727FF1ECD988600F891F3 /* DashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A727FD1ECD988600F891F3 /* DashboardCell.swift */; };
 		34A728001ECD988600F891F3 /* DashboardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A727FE1ECD988600F891F3 /* DashboardCell.xib */; };
@@ -27,8 +31,6 @@
 		34C059951EBB3BE000A9C520 /* Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C059941EBB3BE000A9C520 /* Sync.swift */; };
 		34CB12761EA7C73D0056BFFB /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CB12741EA7C73D0056BFFB /* DashboardViewController.swift */; };
 		34CB12771EA7C73D0056BFFB /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34CB12751EA7C73D0056BFFB /* DashboardViewController.xib */; };
-		34CB127A1EA7C7960056BFFB /* EyePhasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CB12781EA7C7960056BFFB /* EyePhasesViewController.swift */; };
-		34CB127B1EA7C7960056BFFB /* EyePhasesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34CB12791EA7C7960056BFFB /* EyePhasesViewController.xib */; };
 		34CB127D1EA7C7BD0056BFFB /* EyePhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CB127C1EA7C7BD0056BFFB /* EyePhase.swift */; };
 		34CB127F1EA7C8000056BFFB /* EyePhase.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34CB127E1EA7C8000056BFFB /* EyePhase.xib */; };
 		9D38A7F95DE8F2188818AA7D /* Pods_EyeScope.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9EF83A4DCBCB53DA331F85A /* Pods_EyeScope.framework */; };
@@ -37,13 +39,17 @@
 /* Begin PBXFileReference section */
 		348D18781EA7B84F00F747C2 /* EyeScope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EyeScope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		348D187B1EA7B84F00F747C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		348D187D1EA7B84F00F747C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		348D18801EA7B84F00F747C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		348D18821EA7B84F00F747C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		348D18851EA7B84F00F747C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		348D18871EA7B84F00F747C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34A727F61ECD936300F891F3 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		34A727F81ECD949A00F891F3 /* EyeFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyeFolder.swift; sourceTree = "<group>"; };
+		349D2C131EDF52970039323F /* PhotosPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosPageController.swift; sourceTree = "<group>"; };
+		349D2C141EDF52970039323F /* PhotosPageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosPageController.xib; sourceTree = "<group>"; };
+		349D2C171EDF53850039323F /* EyePhaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyePhaseViewModel.swift; sourceTree = "<group>"; };
+		349D2C191EDF59630039323F /* ExtendedPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedPageControl.swift; sourceTree = "<group>"; };
+		349D2C1B1EDF59D50039323F /* ExtendedScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedScrollView.swift; sourceTree = "<group>"; };
+		349D2C1D1EDF72750039323F /* EyePhotoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyePhotoViewModel.swift; sourceTree = "<group>"; };
+		349D2C211EDFAFF40039323F /* EyePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyePhoto.swift; sourceTree = "<group>"; };
 		34A727FB1ECD97AF00F891F3 /* DashboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		34A727FD1ECD988600F891F3 /* DashboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardCell.swift; sourceTree = "<group>"; };
 		34A727FE1ECD988600F891F3 /* DashboardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardCell.xib; sourceTree = "<group>"; };
@@ -57,8 +63,6 @@
 		34C059941EBB3BE000A9C520 /* Sync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sync.swift; sourceTree = "<group>"; };
 		34CB12741EA7C73D0056BFFB /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		34CB12751EA7C73D0056BFFB /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
-		34CB12781EA7C7960056BFFB /* EyePhasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyePhasesViewController.swift; sourceTree = "<group>"; };
-		34CB12791EA7C7960056BFFB /* EyePhasesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EyePhasesViewController.xib; sourceTree = "<group>"; };
 		34CB127C1EA7C7BD0056BFFB /* EyePhase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EyePhase.swift; sourceTree = "<group>"; };
 		34CB127E1EA7C8000056BFFB /* EyePhase.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EyePhase.xib; sourceTree = "<group>"; };
 		6B40096F7FDC5721FE768398 /* Pods-EyeScope.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EyeScope.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EyeScope/Pods-EyeScope.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,7 +111,6 @@
 				34CB12701EA7C6710056BFFB /* Model */,
 				34CB126F1EA7C6600056BFFB /* Coordinators */,
 				348D187B1EA7B84F00F747C2 /* AppDelegate.swift */,
-				348D187D1EA7B84F00F747C2 /* ViewController.swift */,
 				348D187F1EA7B84F00F747C2 /* Main.storyboard */,
 				348D18821EA7B84F00F747C2 /* Assets.xcassets */,
 				348D18841EA7B84F00F747C2 /* LaunchScreen.storyboard */,
@@ -121,6 +124,8 @@
 			children = (
 				34A727FB1ECD97AF00F891F3 /* DashboardViewModel.swift */,
 				34A728041ECD9DCA00F891F3 /* DashboardCellViewModel.swift */,
+				349D2C171EDF53850039323F /* EyePhaseViewModel.swift */,
+				349D2C1D1EDF72750039323F /* EyePhotoViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -130,6 +135,8 @@
 			children = (
 				34A728021ECD99D100F891F3 /* UITableView+Reusable.swift */,
 				34A7280A1ECDBC2800F891F3 /* UIApplication+StatusBar.swift */,
+				349D2C191EDF59630039323F /* ExtendedPageControl.swift */,
+				349D2C1B1EDF59D50039323F /* ExtendedScrollView.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -155,8 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				34C059911EBB31AE00A9C520 /* Dao */,
-				34A727F61ECD936300F891F3 /* Photo.swift */,
-				34A727F81ECD949A00F891F3 /* EyeFolder.swift */,
+				349D2C211EDFAFF40039323F /* EyePhoto.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -166,12 +172,12 @@
 			children = (
 				34CB12741EA7C73D0056BFFB /* DashboardViewController.swift */,
 				34CB12751EA7C73D0056BFFB /* DashboardViewController.xib */,
-				34CB12781EA7C7960056BFFB /* EyePhasesViewController.swift */,
-				34CB12791EA7C7960056BFFB /* EyePhasesViewController.xib */,
 				34CB127C1EA7C7BD0056BFFB /* EyePhase.swift */,
 				34CB127E1EA7C8000056BFFB /* EyePhase.xib */,
 				34A727FD1ECD988600F891F3 /* DashboardCell.swift */,
 				34A727FE1ECD988600F891F3 /* DashboardCell.xib */,
+				349D2C131EDF52970039323F /* PhotosPageController.swift */,
+				349D2C141EDF52970039323F /* PhotosPageController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -273,12 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				348D18861EA7B84F00F747C2 /* LaunchScreen.storyboard in Resources */,
-				34CB127B1EA7C7960056BFFB /* EyePhasesViewController.xib in Resources */,
 				348D18831EA7B84F00F747C2 /* Assets.xcassets in Resources */,
 				34CB127F1EA7C8000056BFFB /* EyePhase.xib in Resources */,
 				34A728001ECD988600F891F3 /* DashboardCell.xib in Resources */,
 				348D18811EA7B84F00F747C2 /* Main.storyboard in Resources */,
 				34CB12771EA7C73D0056BFFB /* DashboardViewController.xib in Resources */,
+				349D2C161EDF52970039323F /* PhotosPageController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,20 +346,22 @@
 				34C059901EBB296400A9C520 /* Api.swift in Sources */,
 				34A728051ECD9DCA00F891F3 /* DashboardCellViewModel.swift in Sources */,
 				34A728071ECDB1F500F891F3 /* Coordinator.swift in Sources */,
-				34A727F91ECD949A00F891F3 /* EyeFolder.swift in Sources */,
+				349D2C1A1EDF59630039323F /* ExtendedPageControl.swift in Sources */,
+				349D2C151EDF52970039323F /* PhotosPageController.swift in Sources */,
+				349D2C221EDFAFF40039323F /* EyePhoto.swift in Sources */,
+				349D2C1C1EDF59D50039323F /* ExtendedScrollView.swift in Sources */,
 				34A728091ECDB24700F891F3 /* AppCoordinator.swift in Sources */,
 				34A728031ECD99D100F891F3 /* UITableView+Reusable.swift in Sources */,
 				34A7280B1ECDBC2800F891F3 /* UIApplication+StatusBar.swift in Sources */,
 				34C059931EBB31BB00A9C520 /* DataCommons.swift in Sources */,
+				349D2C181EDF53850039323F /* EyePhaseViewModel.swift in Sources */,
 				34C059951EBB3BE000A9C520 /* Sync.swift in Sources */,
 				34A727FC1ECD97AF00F891F3 /* DashboardViewModel.swift in Sources */,
-				348D187E1EA7B84F00F747C2 /* ViewController.swift in Sources */,
 				34CB12761EA7C73D0056BFFB /* DashboardViewController.swift in Sources */,
 				34CB127D1EA7C7BD0056BFFB /* EyePhase.swift in Sources */,
-				34CB127A1EA7C7960056BFFB /* EyePhasesViewController.swift in Sources */,
 				348D187C1EA7B84F00F747C2 /* AppDelegate.swift in Sources */,
 				34A727FF1ECD988600F891F3 /* DashboardCell.swift in Sources */,
-				34A727F71ECD936300F891F3 /* Photo.swift in Sources */,
+				349D2C1E1EDF72750039323F /* EyePhotoViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

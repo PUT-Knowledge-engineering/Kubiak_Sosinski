@@ -16,9 +16,10 @@ import SwiftyJSON
 let key = "qJW2KO0gKRSEdcXX"
 
 enum ApiPath: String {
-    case CatalogList = "api/eye/catalog?key={key}"
-    case Catalog = "api/eye/photo/{id}?key={key}"
-    case Save = "api/eye/save/{id}?key={key}"
+    case CatalogList = "/api/eye/catalog?key={key}"
+    case Catalog = "/api/eye/photo/{id}?key={key}"
+    case Save = "/api/eye/save/{id}?key={key}"
+    case Photo = "{key}"
 }
 
 enum ResponseSerializerType {
@@ -69,7 +70,7 @@ open class Api: AFHTTPSessionManager {
     class func getInstance(_ backgroundMode: Bool) -> Api {
         let path: String
 
-        path = "http://eyescopeapi.azurewebsites.net/"
+        path = "http://eyescopeapi.azurewebsites.net"
 
         return Api(baseURL: URL(string: path), sessionConfiguration:
             .default)
@@ -110,7 +111,7 @@ open class Api: AFHTTPSessionManager {
 
      - returns: <#return value description#>
      */
-    fileprivate func urlForPath(_ path: ApiPath, _ id: Int?, _ key: String?) -> String {
+    func urlForPath(_ path: ApiPath, _ id: Int?, _ key: String?) -> String {
         var urlPath = api.baseURL!.absoluteString
         urlPath += path.rawValue
 

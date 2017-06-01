@@ -31,6 +31,24 @@ class Sync {
                 successful(catalogs)
         }, failure: { (error) -> () in
             failure(error as NSError)
-        }) }
-    
+        })
+    }
+
+    func syncCatalog(catalogId: Int, _ successful: @escaping (CatalogList) -> (Void), failure: @escaping (Error) -> (Void)) {
+
+        api.catalog(catalogId, successful: { (response) -> () in
+            guard let json = response as? JSON else {
+                failure(NSError(domain: "", code: 0, userInfo: nil))
+                return
+            }
+            // dump(json)
+            //print(json)
+            let photos = CatalogList(json: json)
+
+            successful(photos)
+        }, failure: { (error) -> () in
+            failure(error as NSError)
+        })
+    }
+
 }

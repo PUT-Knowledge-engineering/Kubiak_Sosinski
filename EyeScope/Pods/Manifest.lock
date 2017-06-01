@@ -15,6 +15,8 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - Alamofire (4.4.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
@@ -37,6 +39,11 @@ PODS:
     - Moya/Core
     - RxSwift (~> 3.0)
   - Result (3.2.1)
+  - RxAlamofire (3.0.2):
+    - RxAlamofire/Core (= 3.0.2)
+  - RxAlamofire/Core (3.0.2):
+    - Alamofire (~> 4.0)
+    - RxSwift (~> 3.0)
   - RxCocoa (3.3.1):
     - RxSwift (~> 3.3)
   - RxDataSources (1.0.3):
@@ -55,11 +62,13 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0.0)
+  - AlamofireImage (~> 3.1)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Dwifft
   - Hero
   - Moya-Gloss/RxSwift
   - Moya/RxSwift
+  - RxAlamofire
   - RxCocoa
   - RxDataSources (~> 1.0)
   - RxOptional
@@ -81,6 +90,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Dwifft: 9b7f1e55950e27b9dcdbb4d48502625cb4690b97
   Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
@@ -88,6 +98,7 @@ SPEC CHECKSUMS:
   Moya: d3721622e3cc0cc2f038d69a258686f0b66e7252
   Moya-Gloss: b994dc03a346592e72bee59b16b6c96149412bc3
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
+  RxAlamofire: bc53604b29fd2d220cfaa490c736cc4500819f34
   RxCocoa: 7dcb7a1860fc9cd0e23dae67ab105fc2916670b6
   RxDataSources: a021a0e944ba5f7991259829d973afdbfa719c0b
   RxOptional: b97b59183af80d1e729ac9e51d09a10be668d6a8
@@ -97,6 +108,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 9216b6e163c145628ccc7c0126df4287880d6e1e
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 09bb00b8bcf899650f08499f55368acaeb157062
+PODFILE CHECKSUM: 10db2ad0879ad21f94734db3b2d4b45e9af133fe
 
 COCOAPODS: 1.2.0

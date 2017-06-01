@@ -27,6 +27,7 @@ class AppCoordinator: FlowCoordinator {
 
 
         let dm = DashboardViewModel()
+        dm.delegate = self
         let dashboardViewController = DashboardViewController(viewModel: dm)
 
         navigationController.pushViewController(dashboardViewController, animated: true)
@@ -39,4 +40,25 @@ class AppCoordinator: FlowCoordinator {
 
 extension AppCoordinator: AppCoordinatorDelegate {
     
+}
+
+extension AppCoordinator: DashboardViewModelDelegate {
+    func folderChoosen(withFolder folder: Int, named: String) {
+        showPhotosPageController(withFolder: folder, named: named)
+    }
+
+    private func showPhotosPageController(withFolder folder: Int, named photoDir: String) {
+        navigationController.navigationBar.isHidden = true
+        let photosPageController = PhotosPageController()
+        let viewModel = EyePhaseViewModel(folderUrl: folder, named: photoDir)
+        viewModel.delegate = self
+        photosPageController.viewModel = viewModel
+        navigationController.pushViewController(photosPageController, animated: true)
+    }
+}
+
+extension AppCoordinator: PhotosPageViewModelDelegate {
+    func pop() {
+        navigationController.popViewController(animated: true)
+    }
 }
