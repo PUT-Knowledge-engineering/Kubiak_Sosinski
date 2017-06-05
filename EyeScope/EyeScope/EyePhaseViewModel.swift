@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import SwiftyJSON
 
 protocol PhotosPageViewModelDelegate: class {
     func pop()
@@ -18,6 +19,7 @@ class EyePhaseViewModel {
     let observablePhotos: Variable<[(Int, EyePhotoViewModel)]> = Variable([])
     let numberOfPages: Variable<Int> = Variable(0)
     let photoDir: String
+    let catalogNumber: Int
     var photoFolder: CatalogList?
     weak var delegate: PhotosPageViewModelDelegate?
 
@@ -25,6 +27,7 @@ class EyePhaseViewModel {
 
     init(folderUrl: Int, named photoDir: String) {
         self.photoDir = photoDir
+        self.catalogNumber = folderUrl
         downloadPhotos(folderUrl: folderUrl)
     }
 
@@ -46,10 +49,32 @@ class EyePhaseViewModel {
     }
 
     func save(_ viewModels: [EyePhotoViewModel]) {
+        var photos: [[String : Any]] = []
+
         viewModels.forEach { (model) in
-            print("Widok" + (model.photo.name) + String(describing: model.observablePhase.value))
+            let photo: [String : Any] = [
+                "dir" : model.photo.dir,
+                "name" : model.photo.name,
+                "side" : model.photo.side,
+                "phase" : model.photo.phase,
+                "histogram" : model.photo.histogram,
+                "size" : [350, 200]
+            ]
+            photos.append(photo)
         }
-        delegate?.pop()
+
+        let dict: SwiftyJSON.JSON = ["photos" : photos]
+        let serializedDict = dict.dictionaryObject
+
+        //dump(serializedDict)
+
+        sync.saveCatalog(catalogId: catalogNumber, dict: serializedDict, { [unowned self] (response) in
+            self.pop()
+        })
+        { (error) -> (Void) in
+            print(error)
+        }
+
     }
 
     func pop() {

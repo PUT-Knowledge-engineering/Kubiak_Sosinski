@@ -9,6 +9,7 @@
 import Foundation
 import AFNetworking
 import SwiftyJSON
+import Alamofire
 
 //http://eyescopeapi.azurewebsites.net/Home/Requests
 //?key=qJW2KO0gKRSEdcXX
@@ -157,7 +158,7 @@ open class Api: AFHTTPSessionManager {
      - parameter successful: successful block
      - parameter failure:    failure block
      */
-    func catalog(_ catalogId: Int, _ method: ApiMethod = .get, dict: JSON? = nil, successful: @escaping ResponseOk, failure: @escaping ResponseError) {
+    func catalog(_ catalogId: Int, _ method: ApiMethod = .get, dict: [String:Any]? = nil, successful: @escaping ResponseOk, failure: @escaping ResponseError) {
         switch method {
         case .get:
             get(urlForPath(ApiPath.Catalog, catalogId, key), parameters: [:], success: { (_, response) -> Void in
@@ -168,15 +169,17 @@ open class Api: AFHTTPSessionManager {
                 failure(error)
             }
         case .post:
-            let params = ["text": dict?["text"] as? String ?? ""]
 
-            post(urlForPath(ApiPath.Save, catalogId, key), parameters: params as AnyObject!, success: { (_, response) -> Void in
-                if let json = response as? JSON {
-                    successful(json as AnyObject)
+            Alamofire.request(urlForPath(ApiPath.Save, catalogId, key), method: .post, parameters: dict, encoding: JSONEncoding.default, headers: nil).response(completionHandler: { (response) in
+                if let code = response.response?.statusCode {
+                    if code == 200 {
+                        successful(code)
+                    }
                 }
-            }) { (_, error) -> Void in
-                failure(error)
-            }
+                else if let error = response.error {
+                    failure(error)
+                }
+            })
         default:
             print("Not implemented yet.")
         }

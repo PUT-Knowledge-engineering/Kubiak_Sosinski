@@ -49,4 +49,14 @@ class Sync {
         })
     }
 
+    func saveCatalog(catalogId: Int, dict: [String: Any]?, _ successful: @escaping () -> (Void), failure: @escaping (Error) -> (Void)) {
+
+        api.catalog(catalogId, .post, dict: dict, successful: { (response) -> () in
+            successful()
+        }, failure: { (error) -> () in
+            failure(error as NSError)
+        })
+
+    }
+
 }

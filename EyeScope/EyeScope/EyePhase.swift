@@ -39,9 +39,6 @@ class EyePhase: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        let sth = segmentedControl.selectedSegmentIndex
-        let lol = phaseSegmentedControl.selectedSegmentIndex
     }
 
     func bindViewModel() {
@@ -62,6 +59,8 @@ class EyePhase: UIView {
         .asObservable()
         .bindTo(eyeImage.rx.image)
         .addDisposableTo(disposeBag)
+
+        segmentedControl.selectedSegmentIndex = 2
     }
 
     private func loadNib() {

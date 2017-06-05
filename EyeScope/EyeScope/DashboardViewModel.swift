@@ -12,6 +12,12 @@ import RxDataSources
 
 typealias FolderSection = SectionModel<String, DashboardCellViewModel>
 
+enum CatalogStatus {
+    case Done
+    case ToDo
+    case All
+}
+
 protocol DashboardViewModelDelegate: class {
     func folderChoosen(withFolder folder: Int, named: String)
 }
@@ -19,6 +25,8 @@ protocol DashboardViewModelDelegate: class {
 class DashboardViewModel {
     let observableSections: Variable<[FolderSection]> = Variable([])
     let observableFolders: Variable<[CatalogEntity]> = Variable([])
+    let filteredSections: Variable<[FolderSection]> = Variable([])
+    let status: Variable<CatalogStatus> = Variable(.All)
     weak var delegate: DashboardViewModelDelegate?
 
     private let disposeBag = DisposeBag()
@@ -34,10 +42,18 @@ class DashboardViewModel {
             print("completed folder download")
         }
 
-        observableFolders.asObservable()
+        let sections = observableFolders.asObservable()
             .map(DashboardViewModel.logSectionsForLogs)
-            .bindTo(observableSections)
-            .addDisposableTo(disposeBag)
+            .shareReplay(1)
+
+//        Observable.zip(sections.asObservable(), status.asObservable()) { $0 }
+//            .flatMap { [unowned self] (sections, status) ->  Observable<FolderSection> in
+//                self.filterCatalogs(status: status)
+//        }
+
+        sections.asObservable()
+        .bindTo(observableSections)
+        .addDisposableTo(disposeBag)
 
         }
 
@@ -67,6 +83,18 @@ class DashboardViewModel {
 
     func chooseFolder(folder: Int, named: String) {
         delegate?.folderChoosen(withFolder: folder, named: named)
+    }
+
+    func filterCatalogs(status: CatalogStatus) -> Observable<FolderSection> {
+        switch status {
+        case .Done:
+//            observableSections.value.filter
+            break
+        case .ToDo:
+            break
+        case .All:
+            break
+        }
     }
 
 }

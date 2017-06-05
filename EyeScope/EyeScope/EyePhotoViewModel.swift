@@ -14,11 +14,13 @@ import AlamofireImage
 enum Side: Int, CustomStringConvertible {
     case Left = 0
     case Right = 1
+    case Undefined = 2
 
     var description : String {
         switch self {
-        case .Left: return "Left"
-        case .Right: return "Right"
+        case .Left: return "l"
+        case .Right: return "r"
+        case .Undefined: return "u"
         }
     }
 }
@@ -27,7 +29,7 @@ class EyePhotoViewModel {
 
     let observableImage: Variable<UIImage> = Variable(UIImage())
     let observablePhase: Variable<Int?> = Variable(0)
-    let observableSide: Variable<Int?> = Variable(0)
+    let observableSide: Variable<Int?> = Variable(2)
     var photo: EyePhoto
     let photoUrl: String
 
@@ -57,7 +59,7 @@ class EyePhotoViewModel {
     private func setupObservables() {
         observablePhase.asObservable()
             .subscribe(onNext: { [unowned self] (phase) in
-                self.photo.phase = String(describing: (phase! + 1))
+                self.photo.phase = String(describing: (phase!))
         })
         .addDisposableTo(disposeBag)
 

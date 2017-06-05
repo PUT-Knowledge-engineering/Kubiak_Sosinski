@@ -39,6 +39,7 @@
                     <segments>
                         <segment title="Left"/>
                         <segment title="Right"/>
+                        <segment title="Undefined"/>
                     </segments>
                 </segmentedControl>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsT-ZX-okK">
