@@ -44,6 +44,10 @@ class DashboardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        viewModel.fetchItemsWithCompletionBlock {
+            [weak self] (error) -> Void in
+            print("completed folder download")
+        }
     }
 
     private func configureTableView(){

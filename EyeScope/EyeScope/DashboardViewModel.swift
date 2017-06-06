@@ -46,11 +46,6 @@ class DashboardViewModel {
             .map(DashboardViewModel.logSectionsForLogs)
             .shareReplay(1)
 
-//        Observable.zip(sections.asObservable(), status.asObservable()) { $0 }
-//            .flatMap { [unowned self] (sections, status) ->  Observable<FolderSection> in
-//                self.filterCatalogs(status: status)
-//        }
-
         sections.asObservable()
         .bindTo(observableSections)
         .addDisposableTo(disposeBag)
@@ -58,7 +53,7 @@ class DashboardViewModel {
         }
 
 
-    private func fetchItemsWithCompletionBlock(_ completion: @escaping (_ error: Error?) -> Void) {
+    func fetchItemsWithCompletionBlock(_ completion: @escaping (_ error: Error?) -> Void) {
         sync.syncCatalogs({ (catalogs) -> (Void) in
             print("done fetching")
             self.observableFolders.value = catalogs
@@ -83,18 +78,6 @@ class DashboardViewModel {
 
     func chooseFolder(folder: Int, named: String) {
         delegate?.folderChoosen(withFolder: folder, named: named)
-    }
-
-    func filterCatalogs(status: CatalogStatus) -> Observable<FolderSection> {
-        switch status {
-        case .Done:
-//            observableSections.value.filter
-            break
-        case .ToDo:
-            break
-        case .All:
-            break
-        }
     }
 
 }
